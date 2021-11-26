@@ -1,8 +1,11 @@
+import './Card.sass';
+
 function Card(props) {
     return(
         <div className="card">
-            <img src={props.img_link} alt="" height = '200' />
-            <a href={props.url}>{props.author}</a>
+            <div style={{backgroundImage: `url(${props.src})`}} alt="" className = '__img' />
+            <div><a href={props.url}>ссылка на оригинал</a></div>
+            <div><a href={props.photographer_url}>{props.photographer}</a></div>
         </div>
     )
 }

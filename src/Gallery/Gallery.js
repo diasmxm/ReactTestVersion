@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Card from '../Card';
 import './Gallery.sass';
+import key from '../key';
 // компонент галереии
 // запрашивать информацию при render
 
@@ -17,11 +18,14 @@ class Gallery extends React.Component{
     async componentDidMount() {
         const images = await axios({
             method: "GET",
-            url: "https://picsum.photos/v2/list"
+            url: "https://api.pexels.com/v1/curated",
+            headers: {
+                'Authorization': key
+            }
         })
 
         this.setState({
-            images: images.data,
+            images: images.data.photos,
             loaded: false
         })
     }
@@ -29,16 +33,18 @@ class Gallery extends React.Component{
         const CardList = this.state.images.map(img=>{
             return <Card 
                 key = {img.id}
-                img_link = {img.download_url}
+                src = {img.src.large}
                 author = {img.author}
                 url = {img.url}
+                photographer_url = {img.photographer_url}
+                photographer = {img.photographer}
            />
         })
         if(this.state.loaded){
             return <div> Идет загрузка </div>
         } else {
         return (
-            <div>
+            <div className = 'wrapper'>
                 <h1>Gallery</h1>
                 <div className="gallery_wrapper">
                     {CardList}
