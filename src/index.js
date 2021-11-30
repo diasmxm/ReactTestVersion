@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import Gallery from './Gallery';
+import App from './App';
 
 ReactDOM.render(
-    <Gallery />,
+    <App />,
   document.getElementById('root')
 );
 
