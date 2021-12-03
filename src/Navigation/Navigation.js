@@ -1,5 +1,5 @@
 import './Navigation.sass';
-import Posts from '../Posts/posts';
+import Posts from '../Posts/Posts';
 import Home from '../Home';
 import Gallery from '../Gallery';
 import {

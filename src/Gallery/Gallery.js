@@ -4,7 +4,8 @@ import Card from '../Card';
 import './Gallery.sass';
 import key from '../key';
 import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app;
+import Paginate from '../Paginate';
 // компонент галереии
 // запрашивать информацию при render
 
@@ -17,12 +18,34 @@ class Gallery extends React.Component{
             photoIndex: 0,
             isOpen: false,
             lightImages: [],
-            paginateNumber: 2,
+            paginateNumber: [],
             perPage: 30
         }
     }
+    updatePage = (index)=>{
+        this.setState({
+            paginateNumber:index
+        })
+    }
 
     async componentDidMount() {
+        const images = await axios({
+            method: "GET",
+            url: `https://api.pexels.com/v1/curated?page=${this.state.paginateNumber}?per_page=${this.state.perPage}`,
+            headers: {
+                'Authorization': key
+            }
+        })
+        const lightImages = images.data.photos.map(img=>{
+            return img.src.large2x
+        })
+        this.setState({
+            images: images.data.photos,
+            loaded: false,
+            lightImages
+        })
+    }
+    async componentDidUpdate(){
         const images = await axios({
             method: "GET",
             url: `https://api.pexels.com/v1/curated?page=${this.state.paginateNumber}?per_page=${this.state.perPage}`,
@@ -79,6 +102,11 @@ class Gallery extends React.Component{
           />
         )}
                 </div>
+                <Paginate 
+                    number={6} 
+                    selectNumber = {this.state.paginateNumber}
+                    handleClick = {this.updatePage}
+                    />
             </div>
         )
     }
