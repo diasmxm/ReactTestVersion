@@ -2,6 +2,8 @@ import './Navigation.sass';
 import Posts from '../Posts/Posts';
 import Home from '../Home';
 import Gallery from '../Gallery';
+import Article from '../Article';
+import Editor from '../Editor/Editor';
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +19,7 @@ function Navigation() {
           <Link to="/home">Домой</Link>
           <Link to="/blog">Блог</Link>
           <Link to="/gallery">Галлерея</Link>
+          <Link to="/editor">Редактор</Link>
         </nav>
       </header>    
 
@@ -25,7 +28,9 @@ function Navigation() {
         <Routes>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/blog" element={<Posts />}></Route>
+          <Route path="/blog/:id" element={<Article />} />
           <Route path="/gallery" element={<Gallery />}></Route>
+          <Route path="/editor" element={<Editor />}></Route>
         </Routes>
     </Router>
   );
