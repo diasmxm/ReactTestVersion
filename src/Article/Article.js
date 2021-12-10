@@ -2,6 +2,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import './Article.sass';
+import ReactMarkdown from 'react-markdown'
 
 function Article(){
     let {id} = useParams()
@@ -18,9 +19,8 @@ function Article(){
         }, [])
     return(
         <div className="article_wrapper">
-            <h3>{articleInfo.title}</h3>
-            <p>{articleInfo.content}</p>
-            <p>{articleInfo.author}</p>
+            
+            <ReactMarkdown children={`${articleInfo.title} ${articleInfo.content}`}/>
             <div> ❤️ {articleInfo.likes}</div>
         </div>
     );
