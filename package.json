@@ -1,28 +1,33 @@
 {
-  "name": "todo2",
+  "name": "todo",
   "version": "0.1.0",
   "homepage": "https://diasmxm.gitlab.io/blog/",
   "private": true,
   "dependencies": {
+    "7": "^0.0.1",
+    "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "autoprefixer": "^9.8.8",
     "axios": "^0.24.0",
     "json-server": "^0.17.0",
     "node-sass": "^6.0.1",
+    "postcss": "^7.0.39",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-image-lightbox": "^5.1.4",
     "react-markdown": "^7.1.1",
-    "react-notification": "^6.8.5",
     "react-notifications": "^1.7.2",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "remark-gfm": "^3.0.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "start react-scripts start && start npm run server",
-    "build": "react-scripts build",
+    "start": "start craco start && start npm run server",
+    "build": "craco build",
     "test": "react-scripts test",
     "server": "cd json_server && json-server --watch db.json --port 5000",
     "eject": "react-scripts eject"
@@ -44,10 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.4",
-    "tailwindcss": "^3.0.0"
   }
 }

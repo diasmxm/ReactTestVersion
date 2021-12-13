@@ -7,7 +7,7 @@ function Paginate(props){
     const paginateButtons = []
     for(let i=1; i<props.number; i++){
         if(props.selectNumber == i){
-            paginateButtons.push(<button className = 'is_active'>{i}</button>) 
+            paginateButtons.push(<button className = 'bg-primary'>{i}</button>) 
         }else{
             paginateButtons.push(<button onClick = {() => handleClick(i)}>{i}</button>)
         }

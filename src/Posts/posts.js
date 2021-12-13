@@ -21,12 +21,12 @@ function Posts() {
       return <Post key={post.id}
         id={post.id}
         title={post.title} 
-        body={post.content}
+        description={post.description}
         likes={post.likes}
         author={post.author}/>
     })
     return (
-      <div className="posts_wrapper">
+      <div className="min-h-screen w-1/2 py-20 container mx-auto">
         {post_list}
         <Outlet/>
       </div>

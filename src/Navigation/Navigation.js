@@ -14,12 +14,12 @@ import {
 function Navigation() {
   return (
     <Router>
-      <header>
+      <header className='bg-lightGrey'>
         <nav>
-          <Link to="/home">Домой</Link>
-          <Link to="/blog">Блог</Link>
-          <Link to="/gallery">Галлерея</Link>
-          <Link to="/editor">Редактор</Link>
+          <Link to="/home"  className='text-primary'>Домой</Link>
+          <Link to="/blog" className='text-primary'>Блог</Link>
+          <Link to="/gallery" className='text-primary'>Галлерея</Link>
+          <Link to="/editor" className='text-primary'>Редактор</Link>
         </nav>
       </header>    
 
